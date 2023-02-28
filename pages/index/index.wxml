@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- background -->
+  <image src='../../res/1.jpg' mode="widthFix" class="bg"></image>
+
+  <!-- avator -->
+  <image class="avatar" src="{{avatarUrl}}"></image>
+
+  <!-- text view -->
+  <input wx:if="{{isMe}}" type="nickname" class="weui-input" placeholder="请输入昵称" id="nickname" bindinput="nicknameInput"/>
+  <text wx:if="{{!isMe}}" class="nickname">{{nickname}}</text>
+
+  <!-- text -->
+  <view class="text-box">
+    <input type="text" maxlength="16" value="{{toName}}" class="toName" bindinput="toNameInput"/>
+    <input type="text" maxlength="80" value="{{content}}" class="content" bindinput="contentInput"/>
+    <input type="text" maxlength="16" value="{{fromName}}" class="fromName" bindinput="fromNameInput"/>
+  </view>
+
+  <!-- button -->
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">选择头像</button> 
+  <button wx:if="{{isMe}}" class="send_btn" open-type="share">发送给好友</button>
+  
+</view>
